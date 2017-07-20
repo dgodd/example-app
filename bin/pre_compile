@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+vendor=$DEPS_DIR/$DEPS_IDX
+profile=/app/.profile.d
+ls -al /app
+GDAL_DATA="$vendor/share/gdal"
+PROJ_LIB="$vendor/share/proj"
+mkdir -p $profile
+touch $profile/cfgeo.sh
+tee -a $profile/cfgeo.sh << EOT
+export PROJ_LIB=$PROJ_LIB
+EOT
+
+echo "Grabbing vendored libs..."
+tar -zxf vendorlibs.0.0.1.cflinuxfs2.x86_64.tar.gz -C $vendor
+ls -al $vendor
+
+echo "Installed all vendored dependencies!"
+echo "Proj Version..."
+proj
+

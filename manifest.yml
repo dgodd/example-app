@@ -1,0 +1,10 @@
+instances: 1
+buildpack: https://github.com/cloudfoundry/python-buildpack
+memory: 1G
+disk_quota: 1GB
+applications:
+  - name: example-test
+    command: python test.py
+    health-check-type: process
+env:
+  DEBUG_COLLECTSTATIC: 1
