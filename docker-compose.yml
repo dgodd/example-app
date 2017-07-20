@@ -1,7 +1,0 @@
-version: '2'
-services:
-  vendor:
-    image: cloudfoundry/cflinuxfs2:1.46.0
-    volumes:
-      - ./:/build
-    command: /build/build.sh
